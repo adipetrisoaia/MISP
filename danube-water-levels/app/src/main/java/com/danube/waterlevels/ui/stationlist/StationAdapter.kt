@@ -7,9 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.danube.waterlevels.data.db.StationEntity
 import com.danube.waterlevels.databinding.ItemStationBinding
-import java.text.SimpleDateFormat
 import java.util.Locale
-import java.util.TimeZone
 
 class StationAdapter(
     private val onStationClick: (StationEntity) -> Unit
@@ -30,10 +28,6 @@ class StationAdapter(
         private val binding: ItemStationBinding,
         private val onStationClick: (StationEntity) -> Unit
     ) : RecyclerView.ViewHolder(binding.root) {
-
-        private val dateFormat = SimpleDateFormat("dd MMM yyyy HH:mm", Locale.getDefault()).apply {
-            timeZone = TimeZone.getDefault()
-        }
 
         fun bind(station: StationEntity) {
             binding.textStationName.text = station.longname
